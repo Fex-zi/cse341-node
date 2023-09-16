@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Middleware to parse JSON requests
+// parse JSON requests
 app.use(express.json());
 
 // Defined my contacts route
