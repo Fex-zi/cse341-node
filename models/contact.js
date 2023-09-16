@@ -1,11 +1,23 @@
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  favoriteColor: String,
+  birthday: Date
 });
 
 const Contact = mongoose.model('Contact', contactSchema);
 
 module.exports = Contact;
+

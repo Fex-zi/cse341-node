@@ -1,16 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const Contact = require('../models/contact'); // Create a 'Contact' model
+const Contact = require('../models/contact'); // Import your Contact model
 
-// Create a new contact
-router.post('/', async (req, res) => {
+// GET all contacts
+router.get('/', async (req, res) => {
   try {
-    const { name, email, phone } = req.body;
-    const contact = new Contact({ name, email, phone });
-    await contact.save();
-    res.status(201).json(contact);
+    const contacts = await Contact.find();
+    res.json(contacts);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create contact' });
+    res.status(500).json({ error: 'Error fetching contacts' });
+  }
+});
+
+// GET a specific contact by ID
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const contact = await Contact.findById(id);
+    if (!contact) {
+      return res.status(404).json({ error: 'Contact not found' });
+    }
+    res.json(contact);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching contact' });
   }
 });
 
