@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Contact = require('../models/contact'); // Import your Contact model
+const Contact = require('../models/contact'); // Import Contact model
 
 // GET all contacts
 router.get('/', async (req, res) => {
