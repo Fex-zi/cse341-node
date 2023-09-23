@@ -1,1 +1,29 @@
+# POST: Create a new contact
+POST http://localhost:3001/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-05-15"
+}
+
+# PUT: Update a contact
+PUT http://localhost:3001/contacts/6504e1a335e9185d8cd46629
+Content-Type: application/json
+
+{
+  "firstName": "Updated John",
+  "lastName": "Updated Doe",
+  "email": "updated.john.doe@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1990-05-15"
+}
+
+# DELETE: Delete a contact
+DELETE http://localhost:3001/contacts/CONTACT_ID_TO_DELETE
+
+# GET: Get all contacts
 GET http://localhost:3001/contacts
