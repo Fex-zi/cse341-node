@@ -8,9 +8,9 @@ const options = {
     title: 'Contacts API',
     description: 'API for storing and retrieving information about contacts.',
   },
-  host: 'localhost:3001', 
+  host: 'https://project1-cdei.onrender.com', //localhost:3001 
   basePath: '/contacts',  
-  schemes: ['http'],
+  schemes: ['https'], //http
 };
 
 swaggerAutogen(outputFile, endpointsFiles, options);
