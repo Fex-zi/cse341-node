@@ -4,7 +4,7 @@ const app = express();
 const port = 3001;
 const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger-output.json'); // Adjust the path
+const swaggerDocument = require('./swagger-output.json'); 
 
 dotenv.config();
 
@@ -16,15 +16,20 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Middleware to parse JSON requests
+//parse JSON requests
 app.use(express.json());
 
 // Define routes
 const contactsRouter = require('./routes/contacts');
 app.use('/contacts', contactsRouter);
 
-// Serve Swagger UI
+// Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 
 // Start the server
 app.listen(port, () => {

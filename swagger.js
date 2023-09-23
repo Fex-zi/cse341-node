@@ -8,7 +8,7 @@ const options = {
     title: 'Contacts API',
     description: 'API for storing and retrieving information about contacts.',
   },
-  host: 'project1-cdei.onrender.com', //localhost:3001 
+  host: 'project1-cdei.onrender.com', //localhost:3001 ..node swagger.js .. npm start
   basePath: '/contacts',  
   schemes: ['https'], //http
 };
