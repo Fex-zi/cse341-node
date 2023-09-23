@@ -5,10 +5,10 @@
     "title": "Contacts API",
     "description": "API for storing and retrieving information about contacts."
   },
-  "host": "localhost:3001",
+  "host": "https://project1-cdei.onrender.com",
   "basePath": "/contacts",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
